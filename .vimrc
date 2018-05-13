@@ -1,0 +1,112 @@
+set rtp+=~/.fzf
+
+packadd minpac
+call minpac#init()
+
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('tpope/vim-scriptease', {'type': 'opt'})
+
+"--- git
+call minpac#add('tpope/vim-fugitive')
+
+"--- ctags
+"# call minpac#add('xolox/vim-misc')
+"# call minpac#add('xolox/vim-easytags', {'type': 'start'})
+
+call minpac#add('craigemery/vim-autotag')
+call minpac#add('majutsushi/tagbar')
+nmap <F5> :TagbarToggle<CR>
+
+
+"--- ack / ag
+call minpac#add('mileszs/ack.vim')
+"# let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --vimgrep'
+
+"--- NERDTree
+call minpac#add('scrooloose/nerdtree', {'type': 'start'})
+nmap <silent> <F4> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+let g:nerdtree_tabs_open_on_gui__startup=1
+let g:nerdtree_tabs_open_on_console_startup=1
+
+
+"--- fuzzy match file search
+"# call minpac#add('ctrlpvim/ctrlp.vim)'
+
+call minpac#add('vim-airline/vim-airline')
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+call minpac#add('vim-airline/vim-airline-themes')
+let g:airline_theme = 'molokai'
+
+"--- colour schemes
+call minpac#add('dandorman/vim-colors')
+call minpac#add('jnurmine/Zenburn')
+
+"# call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'})
+
+"== editor configuration ======================================================
+
+filetype plugin indent on
+
+"--- show existing tab with 4 spaces width
+set tabstop=4
+
+"--- when indenting with '>', use 4 spaces width
+set shiftwidth=4
+
+"--- on pressing tab, insert 4 spaces
+set expandtab
+
+"--- paste options
+"# nnoremap <F3> :set invpaste paste?<CR>
+set pastetoggle=<F3>
+"# set showmode
+
+
+
+""== ui Look and feel =========================================================
+
+set number      " line numbering
+set t_Co=256    " Force 256 colors
+set t_ut=       " improve screen clearing by using the background color
+
+if has('gui_running')
+    set background=dark
+    colorscheme zenburn
+else
+    colorscheme molokai
+endif
+
+"# let python_highlight_all=1
+ 
+"# syntax on
+syntax enable
+set enc=utf-8
+set term=screen-256color
+let $TERM='screen-256color'
+
+set cul           " highlight current line
+set cuc           " highlight current column
+
+"== pane spliting config =====================================================
+  
+set splitbelow
+set splitright
+
+""== tab config ==============================================================
+
+"--- previous tab
+nmap <silent> <F7> :tabp<CR>
+
+"--- next tab
+nmap <silent> <F8> :tabn<CR>
+
+""== commands ================================================================
+
+"--- minpac
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
