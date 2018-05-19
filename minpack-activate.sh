@@ -25,6 +25,6 @@ else
 fi
 
 # Install minpack managed components.
-vim -E -c PackUpdate -c q 2> /dev/null 
 vim -E -c PackClean -c q 2> /dev/null
+vim -E -c PackUpdate -c q 2> /dev/null 
 
