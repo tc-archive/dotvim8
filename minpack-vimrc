@@ -32,7 +32,6 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:nerdtree_tabs_open_on_gui__startup=1
 let g:nerdtree_tabs_open_on_console_startup=1
 
-
 "--- fuzzy match file search
 "# call minpac#add('ctrlpvim/ctrlp.vim)'
 
@@ -65,8 +64,6 @@ set expandtab
 "# nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
 "# set showmode
-
-
 
 ""== ui Look and feel =========================================================
 
