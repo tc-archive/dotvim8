@@ -60,6 +60,9 @@ set shiftwidth=4
 "--- on pressing tab, insert 4 spaces
 set expandtab
 
+"--- allow backspace to delete from any insert session
+set backspace=indent,eol,start
+
 "--- paste options
 "# nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
