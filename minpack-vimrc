@@ -89,8 +89,21 @@ set enc=utf-8
 set term=screen-256color
 let $TERM='screen-256color'
 
+"# cross-hairs
 set cul           " highlight current line
 set cuc           " highlight current column
+
+"# configure vertical split to be (long U+2502) and clear
+set fillchars+=vert:│
+hi VertSplit ctermbg=NONE guibg=NONE
+
+"# configure powerline fonts for MacVim with default size 12
+if has("gui_running")
+   let s:uname = system("uname")
+   if s:uname == "Darwin\n"
+      set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h12
+   endif
+endif
 
 "== pane spliting config =====================================================
   
